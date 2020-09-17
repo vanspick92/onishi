@@ -5,7 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
     <style>
+        .body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3;
+            font-family: 'Noto Serif JP', serif;
+        }
+
         .header {
             background-color: white;
             position: fixed;
@@ -16,15 +26,21 @@
         }
 
         .section1 {
-            background-color: aqua;
+            width: 100%;
             height: 100vh;
             color: red;
         }
 
         .section {
-            background-color: red;
             min-height: 100vh;
-            color: white;
+            color: black;
+            width: 100%;
+        }
+
+        @media(min-width: 600px) {
+            .section {
+                max-width: 800px;
+            }
         }
 
         .position_titles {
@@ -35,6 +51,8 @@
             align-items: center;
 
         }
+
+
 
         .img_group {
             display: flex;
@@ -48,6 +66,10 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+        }
+
+        .img_group_text {
+            font-size: 80%;
         }
 
         .toppage_photos {
@@ -97,16 +119,17 @@
             justify-content: flex-start;
             align-items: flex-start;
             z-index: 10;
-            width: 100%;
             margin: 0 auto;
             border: 1px solid #0D1A05;
             background-color: #FFF;
+            padding: 20px;
+            padding-top: 40px;
         }
 
         @media(min-width: 600px) {
             .contact--mail {
-                padding: 80px 132px;
-                width: 60%;
+                padding: 80px 0px;
+                width: 80%;
                 justify-content: center;
                 align-items: center;
             }
@@ -114,23 +137,138 @@
 
         .contact--mail--desktop {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
 
+        @media(min-width:600px) {
+            .contact--mail--desktop {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+            }
+        }
+
+        form {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .item {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            float: left;
+            margin-right: 20px;
+            width: 135px;
+            padding-left: 10px;
+        }
+
+        .inputs {
+            float: left;
+            width: 100%;
+        }
+
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            border: solid 1px #aaa;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        @media(min-width:600px) {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"] {
+                width: 60%;
+            }
+        }
+
+        textarea {
+            border: solid 1px #aaa;
+            border-radius: 5px;
+            padding: 10px;
+            height: 160px;
+            font-size: 15px;
+        }
+
+        @media(min-width: 600px) {
+            .textarea {
+                width: 60%
+            }
+        }
+
+
+        .btn-area {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .btn-area button {
+            align-items: center;
+        }
+
+        input[type="submit"] {
+            background: #e0505c;
+            border: none;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+
+
+
+        .googleMap {
+            width: 100%
+        }
+
+        @media(min-width:600px) {
+            .googleMap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .googleMap_resize {
+            width: 100%;
+            height: 300px;
+        }
+
+        @media(min-width:600px) {
+            .googleMap_resize {
+                width: 80%;
+                height: 600px;
+            }
         }
     </style>
 </head>
 
-<body>
+<body class="body">
     <header class="header">
+        <a href="./index.html"> ホーム</a>
         <a href="./onishikensetsu.html"> 事業内容</a>
-        <a href="./jigyounaiyo.html"> 応募者募集</a>
+        <a href="./jigyounaiyo.html"> 採用情報</a>
     </header>
     <div class="section1">
         okomeggg
     </div>
-    <div>
-        <div class="section">
+    <div class="section">
+        <div>
             <div class="position_titles">
                 <h1>事業案内</h1>
             </div>
@@ -138,29 +276,31 @@
                 <p>大西建設は、昭和41年の設立以来50年以上にわたり、香川県中部地方において総合建設業として、公共工事、民間工事を手がけ、社会資本整備の一翼を担ってまいりました。
                     お仕事を通じて、地域に密着し、安全・安心な国土づくりと豊かな森林の整備・保全に貢献していくことを目指しております。</p>
             </div>
-            <div class="img_group" style="background-color: yellow;">
-                <div class="img_group_sub">
-                    <h2>土木</h2>
-                    <img class="toppage_photos" src="./photos/IMG_1098.JPG" alt="土木" title="ショベル">
+            <div class="img_group_text">
+                <div class="img_group">
+                    <div class="img_group_sub">
+                        <h2>土木</h2>
+                        <img class="toppage_photos" src="./photos/IMG_1098.JPG" alt="土木" title="ショベル">
+                    </div>
+                    <div class="img_group_sub">
+                        <h2>造園</h2>
+                        <img class="toppage_photos" src="./photos/IMG_1098.JPG" alt="造園" title="仕事風景">
+                    </div>
                 </div>
-                <div class="img_group_sub">
-                    <h2>造園</h2>
-                    <img class="toppage_photos" src="./photos/IMG_1098.JPG" alt="造園" title="仕事風景">
-                </div>
-            </div>
-            <div class="img_group" style="background-color: yellow;">
-                <div class="img_group_sub">
-                    <h2>林業</h2>
-                    <img class="toppage_photos" src="./photos/IMG_1202.JPG" alt="土木" title="ショベル">
-                </div>
-                <div class="img_group_sub">
-                    <h2>地域ボランティア</h2>
-                    <img class="toppage_photos" src="./photos/IMG_1098.JPG" alt="造園" title="仕事風景">
+                <div class="img_group">
+                    <div class="img_group_sub">
+                        <h2>林業</h2>
+                        <img class="toppage_photos" src="./photos/IMG_1202.JPG" alt="土木" title="ショベル">
+                    </div>
+                    <div class="img_group_sub">
+                        <h2>地域ボランティア</h2>
+                        <img class="toppage_photos" src="./photos/IMG_1098.JPG" alt="造園" title="仕事風景">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div>
+    <div class="section">
         <div class="position_titles">
             <h1>お問い合わせ</h1>
             <p class="txt-ctr">まずはお気軽にご連絡くださいませ。</p>
@@ -170,34 +310,37 @@
                     <p>0877-85-2021</p>
                 </a>
             </div>
-            <div class="contact--mail">
-                <div class="contact--mail--desktop">
-                    <h3>ご担当者様名</h3>
-                    <input type="text">
+            <form>
+                <div class="contact--mail">
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">ご担当者様名</label>
+                        <input type="text">
+                    </div>
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">メールアドレス</label>
+                        <input type="email">
+                    </div>
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">電話番号</label>
+                        <input type="tel">
+                    </div>
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">お問い合わせ内容</label>
+                        <textarea class="textarea"></textarea>
+                    </div>
+                    <div class="btn-area">
+                        <button type="submit">送信</button>
+                    </div>
                 </div>
-                <div class="contact--mail--desktop">
-                    <h3>メールアドレス</h3>
-                    <input type="email">
-                </div>
-                <div class="contact--mail--desktop">
-                    <h3>電話番号</h3>
-                    <input type="tel">
-                </div>
-                <div class="contact--mail--desktop">
-                    <h3>お問い合わせ内容</h3>
-                    <input type="text">
-                </div>
-                <button type="submit">送信</button>
-            </div>
+            </form>
 
         </div>
         <div class="position_titles">
             <h2>アクセス</h2>
-            <div>
-                <iframe class="googleMap"
+            <div class="googleMap">
+                <iframe class="googleMap_resize"
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13206.233780981887!2d133.9421418!3d34.1576372!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x72e68383309afe21!2z5aSn6KW_5bu66KitKOagqik!5e0!3m2!1sja!2sjp!4v1600091737027!5m2!1sja!2sjp"
-                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
+                    frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
         </div>
     </div>
