@@ -5,10 +5,402 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+    <style>
+        .body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3;
+            font-family: 'Noto Serif JP', serif;
+            margin: 0;
+        }
+
+        .header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            z-index: 3;
+        }
+
+        .header-logo {
+            padding: 16px;
+        }
+
+        .header-links {
+            width: 100%;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        .header-links-position {
+            margin-right: 20px;
+        }
+
+        @media(min-width: 600px) {
+            .header-links {
+                font-size: 20px;
+            }
+        }
+
+        .section1 {
+            width: 100%;
+            height: 60vh;
+            color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        @media(min-width: 600px) {
+            .section1 {
+                width: 100vw;
+            }
+        }
+
+        @media screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation: portrait) {
+            .section1 {
+                height: 75vh;
+            }
+        }
+
+        .section {
+            min-height: 100vh;
+            color: black;
+            width: 100%;
+        }
+
+        @media(min-width: 600px) {
+            .section {
+                max-width: 800px;
+            }
+        }
+
+        .video_position {
+            position: relative;
+            height: 100%;
+            right: 30px;
+        }
+
+        @media(min-width: 600px) {
+            .video_position {
+                position: static;
+                overflow: initial;
+                height: auto;
+                width: 100vw;
+            }
+        }
+
+        .video_title {
+            z-index: 2;
+            position: absolute;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+            top: 150px;
+            color: white;
+            text-shadow: 2px 2px 15px #00000063;
+        }
+
+        @media(min-width: 600px) {
+            .video_title {
+                font-size: 120px;
+            }
+        }
+
+        .position_titles {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .image_wrapper {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .toppage_photos {
+            height: 30vh;
+            width: 90vw;
+            object-fit: cover;
+        }
+
+        @media(min-width: 600px) {
+            .toppage_photos {
+                height: 30vh;
+                width: 30vw;
+                object-fit: cover;
+            }
+        }
+
+        .img_group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media(min-width: 600px) {
+            .img_group {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .img_group_sub {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .txt-ctr {
+            text-align: center;
+        }
+
+        .contact--tel {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 11;
+            width: auto;
+            height: auto;
+            margin: 44px auto -32px;
+            text-align: center;
+            letter-spacing: .03em;
+            background-color: #202320;
+            padding: 0px 10px 0px 10px;
+        }
+
+        @media(min-width: 600px) {
+            .contact--tel {
+                width: 452px;
+                height: 64px;
+            }
+        }
+
+        .contact--tel a {
+            color: #FFF;
+            font-size: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .contact--mail {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            z-index: 10;
+            margin: 0 auto;
+            border: 1px solid #0D1A05;
+            background-color: #FFF;
+            padding: 20px;
+            padding-top: 40px;
+        }
+
+        @media(min-width: 600px) {
+            .contact--mail {
+                padding: 80px 0px;
+                width: 80%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .contact--mail--desktop {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        @media(min-width:600px) {
+            .contact--mail--desktop {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+            }
+        }
+
+        form {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .item {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            float: left;
+            margin-right: 20px;
+            width: 135px;
+            padding-left: 10px;
+        }
+
+        .inputs {
+            float: left;
+            width: 100%;
+        }
+
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            border: solid 1px #aaa;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        @media(min-width:600px) {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"] {
+                width: 60%;
+            }
+        }
+
+        textarea {
+            border: solid 1px #aaa;
+            border-radius: 5px;
+            padding: 10px;
+            height: 160px;
+            font-size: 15px;
+        }
+
+        @media(min-width: 600px) {
+            .textarea {
+                width: 60%
+            }
+        }
+
+
+        .btn-area {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .btn-area button {
+            align-items: center;
+        }
+
+        input[type="submit"] {
+            background: #e0505c;
+            border: none;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+    </style>
 </head>
 
-<body>
-    2nd page
+<body class="body">
+    <header class="header">
+        <a class="header-logo" href="index.html"><img src="photos/onishi_logo.png" alt="大西建設株式会社｜香川県まんのう町｜土木｜建設業"
+                width="150"></a>
+        <div class="header-links">
+            <a class="header-links-position" href="./onishikensetsu.html"> 会社紹介</a>
+            <a class="header-links-position" href="./jigyounaiyo.html"> 採用情報</a>
+        </div>
+    </header>
+    <div class="section1">
+        <h1 class="video_title">求人情報
+        </h1>
+        <video class="video_position" src="./videos/saiyo_01.mp4" autoplay playsinline muted loop></video>
+    </div>
+    <div class="section">
+        <div class="position_titles">
+            <div>
+                <h1>募集中の職種</h1>
+            </div>
+            <div class="img_group">
+                <div class="img_group_sub">
+                    <h2>土木施工管理技士</h2>
+                    <div class="image_wrapper">
+                        <img class="toppage_photos" src="./photos/saiyo_sekougishi.jpg" alt="管工｜公共施設｜管工事組合｜香川"
+                            title="管工事業">
+                    </div>
+                </div>
+                <div class="img_group_sub">
+                    <h2>現場作業員</h2>
+                    <div class="image_wrapper">
+                        <img class="toppage_photos" src="./photos/saiyo_genba_sagyoin01.JPG" alt="管工｜公共施設｜管工事組合｜香川"
+                            title="管工事業">
+                    </div>
+                </div>
+                <div class="img_group_sub">
+                    <h2>重機オペレーター</h2>
+                    <div class="image_wrapper">
+                        <img class="toppage_photos" src="./photos/saiyo_juuki_opereator01.JPG" alt="管工｜公共施設｜管工事組合｜香川"
+                            title="管工事業">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="position_titles">
+            <h1>お問い合わせ</h1>
+            <p class="txt-ctr">まずはお気軽にご連絡くださいませ。</p>
+            <div class="contact--tel">
+                <a href="tel:0877852021" class="font-deco-eng"><img src="./icon/icon_photo.svg" width="30" height="34"
+                        alt="電話番号アイコン">
+                    <p>0877-85-2021</p>
+                </a>
+            </div>
+            <form>
+                <div class="contact--mail">
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">ご担当者様名</label>
+                        <input type="text">
+                    </div>
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">メールアドレス</label>
+                        <input type="email">
+                    </div>
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">電話番号</label>
+                        <input type="tel">
+                    </div>
+                    <div class="contact--mail--desktop inputs item">
+                        <label class="label">お問い合わせ内容</label>
+                        <textarea class="textarea"></textarea>
+                    </div>
+                    <div class="btn-area">
+                        <button type="submit">送信</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
